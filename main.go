@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand/v2"
+	"time"
 )
 
 var (
@@ -224,7 +225,7 @@ func aiMove(a map[string]string) string {
   }
 }
 
-func aiLoop()  {
+func aiLoop(waitTime int)  {
   fmt.Println("You are trapped in the dungeon.")
 	fmt.Println("Collect treasure and try to escape.")
 	fmt.Println("To play, type one of the command choices on each turn.")
@@ -257,6 +258,8 @@ func aiLoop()  {
 		fmt.Println("What do you do?")
 
     input := aiMove(actions)
+    time.Sleep(time.Duration(waitTime) * time.Second)
+    fmt.Println(input)
 
 		fmt.Println()
 
@@ -326,7 +329,11 @@ func main() {
   if i == "p" {
     playerLoop()
   } else if i == "c" {
-    aiLoop()
+    fmt.Println()
+    fmt.Println("How long do you want to wait for each turn?")
+    var t int
+    fmt.Scanf("%d", &t)
+    aiLoop(t)
   } else {
     fmt.Println("I don't know how to do that.")
   }
