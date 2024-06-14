@@ -195,7 +195,7 @@ func playerLoop() {
 				fmt.Println("You attack and miss!")
 			}
 		default:
-			fmt.Println("I don't know ho to do that!")
+			fmt.Println("I don't know how to do that!")
 			fmt.Println()
 		}
 
@@ -293,7 +293,7 @@ func aiLoop(waitTime int)  {
 				fmt.Println("You attack and miss!")
 			}
 		default:
-			fmt.Println("I don't know ho to do that!")
+			fmt.Println("I don't know how to do that!")
 			fmt.Println()
 		}
 
