@@ -106,7 +106,7 @@ func roomType() string {
 		"rock cavern",
 		"tomb",
 		"guard room",
-		"liar",
+		"lair",
 	}
 
 	return t[rand.IntN(6)]
@@ -127,9 +127,8 @@ func createRoom() string {
 	return fmt.Sprintf("You are in a %s %s %s.\nThere is an exit on the %s wall.", roomSize(), roomColor(), roomType(), roomDirection())
 }
 
-func main() {
-
-	fmt.Println("You are trapped in the dungeon.")
+func playerLoop() {
+ 	fmt.Println("You are trapped in the dungeon.")
 	fmt.Println("Collect treasure and try to escape.")
 	fmt.Println("To play, type one of the command choices on each turn.")
 	fmt.Println()
@@ -210,5 +209,32 @@ func main() {
 		fmt.Printf("OH NO! You didn't make it out.\n")
 		fmt.Printf("You explored %d rooms before meeting your doom.\n", roomsExplored)
 	}
+}
 
+func aiLoop()  {
+  
+}
+
+func main() {
+  fmt.Println("Welcome to a simple adventure")
+  fmt.Println("Do you want to play the game")
+  fmt.Println("or do you want to watch the computer play.")
+  fmt.Println()
+  fmt.Println("p - player")
+  fmt.Println("c - computer")
+  fmt.Println()
+
+  fmt.Println("What do you want to do?")
+  var i string
+  fmt.Scanf("%s", &i)
+
+  fmt.Println()
+
+  if i == "p" {
+    playerLoop()
+  } else if i == "c" {
+    aiLoop()
+  } else {
+    fmt.Println("I don't know how to do that.")
+  }
 }
